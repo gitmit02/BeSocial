@@ -11,7 +11,7 @@ import {
 import { Heart, MessageCircle, User, LogOut, Home, PlusCircle, Camera, X } from 'lucide-react';
 
 // Mock API
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = 'https://be-social-backend.onrender.com/api';
 
 // Simple Storage Helper
 const storage = {
