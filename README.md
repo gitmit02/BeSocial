@@ -39,47 +39,23 @@ npx tailwindcss init -p
 
 3. **Configure Tailwind CSS**
 
-Update `tailwind.config.js`:
+Update `vite.config.js`:
 
 ```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      animation: {
-        'fadeIn': 'fadeIn 0.3s ease-in-out',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'scale(0.95)' },
-          '100%': { opacity: '1', transform: 'scale(1)' },
-        },
-      },
-    },
-  },
-  plugins: [],
-}
+/** import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({
+  plugins: [react(),tailwindcss()],
+})
 ```
 
 4. **Update `src/index.css`**
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+//remain it empty
 ```
 
 5. **Replace `src/App.jsx`**
@@ -105,8 +81,6 @@ besocial/
 ├── public/
 ├── index.html
 ├── package.json
-├── tailwind.config.js
-├── postcss.config.js
 └── vite.config.js
 ```
 
