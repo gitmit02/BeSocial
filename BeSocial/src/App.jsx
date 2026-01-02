@@ -522,9 +522,13 @@ const PostDetailPage = () => {
           </div>
 
           <div className="px-6 py-3 flex gap-8 border-t border-b">
-            <button onClick={handleLike} className={`flex items-center gap-2 ${liked ? 'text-red-500' : 'text-gray-600'}`}>
-              <Heart size={22} fill={liked ? 'currentColor' : 'none'} /> {post.likes || 0}
-            </button>
+            <button
+  onClick={handleLike}
+  className={`flex items-center gap-2 cursor-pointer ${liked ? 'text-red-500' : 'text-gray-600'} hover:text-red-500 transition-colors`}
+>
+  <Heart size={22} fill={liked ? 'currentColor' : 'none'} />
+  {post.likes || 0}
+</button>
             <div className="flex items-center gap-2 text-gray-600">
               <MessageCircle size={22} /> {post.comments?.length || 0}
             </div>
