@@ -574,13 +574,14 @@ const ProfilePage = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const [userRes, postsRes] = await Promise.all([
-          fetch(`${API_BASE}/users/${userId}`).then(r => r.json()),
-          fetch(`${API_BASE}/posts`).then(r => r.json())
-        ]);
+const [userRes, postsRes] = await Promise.all([
+  fetch(`${API_BASE}/users/${userId}`).then(r => r.json()),
+  fetch(`${API_BASE}/posts?page=1&limit=50`).then(r => r.json()) // increase limit
+]);
+        const allPosts = postsRes.posts || [];
         setUser(userRes);
         setForm({ name: userRes.name || '', email: userRes.email || '', phone: userRes.phone || '' });
-        setUserPosts(Array.isArray(postsRes) ? postsRes.filter(p => p.userId === userId) : []);
+        setUserPosts(allPosts.filter(p => p.userId === userId));
       } catch (e) { /* silent */ } finally {
         setLoading(false);
       }
