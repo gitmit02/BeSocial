@@ -326,7 +326,7 @@ const HomePage = () => {
 
                   <div className="p-5">
                     <p className="text-gray-800 text-lg mb-4 leading-relaxed">{post.text}</p>
-                    <div className="flex items-center gap-8 text-gray-600">
+                    <div className="flex items-center gap-8 text-gray-600 cursor-pointer">
                       <Heart size={22} className="text-red-500" /> {post.likes || 0}
                       <MessageCircle size={22} /> {post.comments?.length || 0}
                     </div>
